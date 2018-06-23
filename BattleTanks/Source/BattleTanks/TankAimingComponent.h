@@ -18,7 +18,7 @@ public:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 	void SetBarrelReference(UTankBarrel * BarrelToSet);
-
+	//void SetTurretReference(UTankBarrel * TurretToSet);
 protected:
 	// Called when the game starts
 
@@ -32,6 +32,8 @@ private:
 	UTankBarrel * Barrel = nullptr;
 	
 	void MoveBarrelTowards(FVector AimDirection);
+	
+	//void RotateTurret(FRotator AimDirection);
 
 	
 };

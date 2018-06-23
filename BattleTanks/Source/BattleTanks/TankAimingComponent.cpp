@@ -24,6 +24,10 @@ void UTankAimingComponent::SetBarrelReference(UTankBarrel * BarrelToSet)
 	Barrel = BarrelToSet;
 }
 // Called when the game starts
+//void UTankAimingComponent::SetTurretReference(UTankBarrel * TurretToSet)
+//{
+//	Turret = TurretToSet;
+//}
 
 void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 {
@@ -37,6 +41,9 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		StartLocation,
 		HitLocation,
 		LaunchSpeed,
+		false,
+		0,
+		0,		
 		ESuggestProjVelocityTraceOption::DoNotTrace
 
 	);
@@ -61,7 +68,11 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		auto AimAsRotator = AimDirection.Rotation();
 		auto DeltaRotator = AimAsRotator - BarrelRotator;
 		
-		Barrel->Elevate(5);
+		Barrel->Elevate(DeltaRotator.Pitch);
+		UE_LOG(LogTemp, Warning, TEXT("Barrel elevate called"));
 	}
+	/*void UTankAimingComponent::RotateTurret(FRotator AimDirection)
+	{
 
+	}*/
 
