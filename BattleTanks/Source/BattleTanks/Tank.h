@@ -5,11 +5,14 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "Classes/Engine/World.h"
 #include "Tank.generated.h"
 
 class UTankBarrel;
 class UTankTurret;
 class UTankAimingComponent;
+class AProjectile;
+
 UCLASS()
 class BATTLETANKS_API ATank : public APawn
 {
@@ -28,6 +31,8 @@ public:
 	
 	UFUNCTION(BluePrintCallable)
 	void Fire();
+protected:
+	UTankAimingComponent * TankAimingComponent = nullptr;
 
 private:
 	// Sets default values for this pawn's properties
@@ -41,11 +46,12 @@ private:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-		float LaunchSpeed = 4000;
+	float LaunchSpeed = 4000;
 
-protected:
-	UTankAimingComponent * TankAimingComponent = nullptr;
+	UPROPERTY(EditAnywhere, Category = Setup)
+		TSubclassOf<AProjectile> ProjectileBlueprint;
 
-	
-	
+		//UClass* ProjectileBlueprint;
+	UTankBarrel* Barrel = nullptr;
+
 };
