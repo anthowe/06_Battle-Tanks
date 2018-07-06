@@ -13,12 +13,15 @@ UCLASS(meta = (BlueprintSpawnableComponent))
 class BATTLETANKS_API UTankTrack : public UStaticMeshComponent
 {
 	GENERATED_BODY()
+	
 public:
-	void Rotate(float RelativeSpeed);
 
-private:
-	UPROPERTY(EditAnywhere, Category = Setup)
-		float MaxDegreesPerSecond = 5;
+	UFUNCTION(BlueprintCallable, Category = Input)
+	void SetThrottle(float Throttle);
+
+	UPROPERTY(EditDefaultsOnly)
+	float TrackMaxDrivingForce = 400000000;
+
 	
 	
 };
