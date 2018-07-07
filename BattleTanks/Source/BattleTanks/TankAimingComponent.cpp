@@ -11,6 +11,14 @@
 
 
 // Sets default values for this component's properties
+void UTankAimingComponent::Initialize(UTankBarrel*BarrelToSet, UTankTurret *TurretToSet)
+{
+	if (!BarrelToSet || !TurretToSet) { return; }
+	Barrel = BarrelToSet;
+	Turret = TurretToSet;
+}
+
+
 UTankAimingComponent::UTankAimingComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
@@ -18,16 +26,6 @@ UTankAimingComponent::UTankAimingComponent()
 	PrimaryComponentTick.bCanEverTick = false;
 
 	// ...
-}
-
-void UTankAimingComponent::SetBarrelReference(UTankBarrel * BarrelToSet)
-{
-	Barrel = BarrelToSet;
-}
-// Called when the game starts
-void UTankAimingComponent::SetTurretReference(UTankTurret * TurretToSet)
-{
-	Turret = TurretToSet;
 }
 
 void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
@@ -62,6 +60,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	
 void  UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	{
+	if (!Barrel || !Turret) { return; }
 		auto BarrelRotator = Barrel->GetForwardVector().Rotation();
 		auto AimAsRotator = AimDirection.Rotation();
 		auto DeltaRotator = AimAsRotator - BarrelRotator;
