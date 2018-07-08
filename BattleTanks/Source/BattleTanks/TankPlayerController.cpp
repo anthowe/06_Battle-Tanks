@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankPlayerController.h"
+#include "TankAimingComponent.h"
 #include "Tank.h"
 
 
@@ -9,16 +10,16 @@ void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	auto ControlledTank = GetControlledTank();
-	if (!ControlledTank)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Player Controller not possessing a tank"));
+	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
+	if (AimingComponent)
+	{ 
+		FoundAimingComponent(AimingComponent);
+		UE_LOG(LogTemp, Warning, TEXT("DONKEY: Found Aiming Component"))
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Player Controller possessed tank: %s"), *(ControlledTank->GetName()));
+		UE_LOG(LogTemp, Warning, TEXT ("DONKEY: No Aiming Component"))
 	}
-	
 }
 void ATankPlayerController::Tick(float DeltaTime)
 {

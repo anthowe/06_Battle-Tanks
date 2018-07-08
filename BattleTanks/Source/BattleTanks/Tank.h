@@ -13,6 +13,9 @@ class UTankTurret;
 class UTankAimingComponent;
 class AProjectile;
 class UTankMovementComponent;
+/**
+*
+*/
 
 UCLASS()
 class BATTLETANKS_API ATank : public APawn
@@ -34,6 +37,8 @@ protected:
 private:
 	// Sets default values for this pawn's properties
 	ATank();
+
+	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, Category = "Firing")
 	float LaunchSpeed = 4000;
