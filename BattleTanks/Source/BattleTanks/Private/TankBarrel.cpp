@@ -2,6 +2,7 @@
 
 #include "TankBarrel.h"
 #include "Public/Math/Rotator.h"
+#include "Tank.h"
 #include "BattleTanks.h"
 
 

@@ -2,6 +2,7 @@
 
 
 #include "Projectile.h"
+#include "Tank.h"
 #include"BattleTanks.h"
 
 

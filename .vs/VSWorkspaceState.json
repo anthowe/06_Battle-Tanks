@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BattleTanks",
+    "\\BattleTanks\\Source",
+    "\\BattleTanks\\Source\\BattleTanks",
+    "\\BattleTanks\\Source\\BattleTanks\\Private",
+    "\\BattleTanks\\Source\\BattleTanks\\Public"
+  ],
+  "SelectedNode": "\\BattleTanks\\Source\\BattleTanks\\Private\\TankPlayerController.cpp",
+  "PreviewInSolutionExplorer": false
+}

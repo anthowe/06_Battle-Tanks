@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankAIController.h"
+#include "TankAimingComponent.h"
 #include "Tank.h"
 
 
@@ -10,10 +11,10 @@ void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
 
-
 }
 void ATankAIController::Tick(float DeltaTime)
 {
+	
 	Super::Tick(DeltaTime);
 
 	auto PlayerTank = Cast <ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
@@ -24,6 +25,7 @@ void ATankAIController::Tick(float DeltaTime)
 		MoveToActor(PlayerTank, AcceptanceRadius);
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
 		ControlledTank->Fire();
+		UE_LOG(LogTemp, Warning, TEXT("DONKEY: Aim"))
 	}
 }
 
