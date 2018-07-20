@@ -18,3 +18,6 @@ The Concept, Rules and Requirements of our simple game.
 
 ### 3 Next
 using github
+
+### 4
++ All commits prior to 06_Battle-Tanks_MINEWORKS
