@@ -20,4 +20,4 @@ The Concept, Rules and Requirements of our simple game.
 using github
 
 ### 4
-+ All commits prior to 06_Battle-Tanks_MINEWORKS
++ All commits prior to 04_Battle-Tanks_MINEWORKS
